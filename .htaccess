@@ -1,0 +1,14 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+# Garante que BASE_URL funcione em subpasta
+RewriteBase /estoque_acai/
+
+# Segurança básica
+<FilesMatch "\.(ini|log|bak|sql)$">
+  Require all denied
+</FilesMatch>
+
+php_value default_charset UTF-8
+
+

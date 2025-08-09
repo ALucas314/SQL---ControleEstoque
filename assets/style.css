@@ -1,0 +1,291 @@
+:root {
+  /* Paleta roxa mais evidente (inspirada em Tailwind Purple) */
+  --acai-50:  #faf5ff;
+  --acai-100: #f3e8ff;
+  --acai-200: #e9d5ff;
+  --acai-300: #d8b4fe;
+  --acai-400: #c084fc;
+  --acai-500: #a855f7;
+  --acai-600: #9333ea; /* principal (botões/header) */
+  --acai-700: #7e22ce; /* hover/ativos */
+  --acai-800: #6b21a8;
+  --acai-900: #581c87;
+}
+
+* { box-sizing: border-box; }
+body {
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: linear-gradient(180deg, var(--acai-50), #ffffff 30%);
+}
+
+/* Tipografia responsiva */
+h1, h2, h3 { font-weight: 600; }
+h1, .h1 { font-size: clamp(1.4rem, 1.2vw + 1.1rem, 2rem); }
+h2, .h2 { font-size: clamp(1.2rem, 1vw + 1rem, 1.6rem); }
+h3, .h3 { font-size: clamp(1.05rem, .8vw + .95rem, 1.35rem); }
+
+.bg-gradient {
+  background: linear-gradient(90deg, var(--acai-700), var(--acai-500));
+}
+
+/* Header roxo sólido */
+.navbar.bg-acai {
+  background-color: #9333ea !important;
+  background: #9333ea !important;
+  --bs-navbar-color: #ffffff;
+  --bs-navbar-hover-color: #f8f9fa;
+  --bs-navbar-active-color: #ffffff;
+  --bs-navbar-brand-color: #ffffff;
+  --bs-navbar-brand-hover-color: #f8f9fa;
+  --bs-navbar-toggler-border-color: rgba(255,255,255,.65);
+  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+/* Reforço de especificidade para garantir fundo roxo em qualquer combinação de classes */
+nav.navbar.bg-acai,
+.navbar.navbar-dark.bg-acai,
+.navbar.bg-acai.shadow-sm {
+  background-color: #9333ea !important;
+  background: #9333ea !important;
+}
+
+/* Realce visual do header */
+.navbar.bg-acai.shadow-sm {
+  box-shadow: 0 8px 28px rgba(147, 51, 234, 0.25) !important;
+}
+.navbar.header-surface .navbar-brand .brand-text,
+.navbar.header-surface .nav-link,
+.navbar.header-surface .navbar-brand i {
+  color: var(--acai-600) !important;
+}
+.navbar.header-surface .navbar-brand {
+  color: var(--acai-600) !important;
+}
+.navbar.header-surface .navbar-brand:hover,
+.navbar.header-surface .navbar-brand:focus {
+  color: var(--acai-700) !important;
+}
+.navbar.header-surface .navbar-brand i { color: inherit !important; }
+.navbar.header-surface .nav-link:hover,
+.navbar.header-surface .nav-link:focus {
+  color: var(--acai-700) !important;
+}
+.navbar.header-surface .nav-link.active {
+  color: var(--acai-700) !important;
+}
+.navbar.header-surface .brand-logo {
+  box-shadow: 0 0 0 2px var(--acai-600) inset;
+}
+
+.card-hover {
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+
+/* Interações suaves */
+.btn, .nav-link, .form-control { transition: all .15s ease; }
+.nav-link:hover { transform: translateY(-1px); }
+.btn-acai:hover { transform: translateY(-1px); }
+.form-control:focus {
+  border-color: var(--acai-400);
+  box-shadow: 0 0 0 .25rem rgba(147, 51, 234, .15);
+}
+
+.btn-acai {
+  background: var(--acai-600);
+  color: #fff;
+  border: none;
+}
+.btn-acai:hover { background: var(--acai-700); color: #fff; }
+
+/* Harmonizar header com botão "Novo item" */
+.navbar.bg-acai .navbar-brand .brand-text,
+.navbar.bg-acai .navbar-brand .brand-logo,
+.navbar.bg-acai .nav-link { color: #fff; }
+.navbar.bg-acai .nav-link:hover { color: #f8f9fa; }
+
+/* Logo base */
+.brand-logo {
+  height: 28px;
+  width: 28px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.badge-soft {
+  background: var(--acai-100);
+  color: var(--acai-800);
+}
+
+.table thead th {
+  background: var(--acai-100);
+}
+
+label.required:after {
+  content: '*';
+  color: #dc3545;
+  margin-left: 2px;
+}
+
+.form-help {
+  font-size: .85rem;
+  color: #6c757d;
+}
+
+/* Toolbar / métricas */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+.metric-pill {
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  background: var(--acai-100);
+  color: var(--acai-800);
+  font-weight: 500;
+}
+
+/* Acessibilidade: foco visível */
+:focus-visible {
+  outline: 3px solid var(--acai-400);
+  outline-offset: 2px;
+}
+
+/* Estoque baixo */
+.qty-low {
+  color: #b02a37;
+  font-weight: 600;
+}
+.badge-low {
+  background: #fde2e1;
+  color: #b02a37;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #6c757d;
+}
+.empty-state i {
+  font-size: 2.25rem;
+  color: var(--acai-600);
+}
+
+/* Input currency alignment */
+.input-group-text {
+  background: var(--acai-100);
+  border-color: #dee2e6;
+}
+
+/* Toasts z-index above navbar */
+.toast-container { z-index: 1080; }
+
+
+/* Responsividade: transformar tabela em cards até tablets */
+@media (max-width: 768px) {
+  .table.card-table thead { display: none; }
+  .table.card-table tbody tr {
+    display: block;
+    background: #ffffff;
+    border: 1px solid #eee;
+    border-radius: .75rem;
+    padding: .5rem .75rem;
+    margin-bottom: .75rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,.06);
+    border-left: 4px solid var(--acai-600);
+  }
+  .table.card-table tbody td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .35rem .25rem;
+    border: none !important;
+    gap: .5rem;
+  }
+  .table.card-table tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #6b7280;
+    padding-right: .75rem;
+    font-size: .85rem;
+  }
+  .table.card-table tbody td.text-end {
+    justify-content: space-between;
+  }
+
+  /* Reordenar para layout mais bonito */
+  .table.card-table tbody td:nth-child(1) { order: 0; font-weight: 600; font-size: 1rem; }
+  .table.card-table tbody td:nth-child(3) { order: 1; justify-content: flex-end; font-weight: 700; font-size: 1.05rem; color: var(--acai-800); }
+  .table.card-table tbody td:nth-child(2) { order: 2; }
+  .table.card-table tbody td:nth-child(5) { order: 3; }
+  .table.card-table tbody td:nth-child(4) { order: 4; }
+  .table.card-table tbody td:nth-child(6) { order: 5; justify-content: flex-end; }
+
+  /* Esconder labels onde não precisa */
+  .table.card-table tbody td:nth-child(1)::before,
+  .table.card-table tbody td:nth-child(3)::before,
+  .table.card-table tbody td:nth-child(6)::before { display: none; }
+
+  /* Chips e badges mais elegantes */
+  .table.card-table tbody td[data-label="Qtd"] {
+    background: var(--acai-50);
+    border: 1px solid var(--acai-200);
+    border-radius: 999px;
+    padding: .25rem .6rem;
+    width: fit-content;
+  }
+  .table.card-table tbody td[data-label="Unidade"] {
+    background: #f8fafc;
+    border: 1px solid #eef2f7;
+    border-radius: 999px;
+    padding: .25rem .6rem;
+    width: fit-content;
+  }
+  .table.card-table .badge-soft { border-radius: 999px; padding: .35rem .6rem; }
+
+  /* Ações como botões compactos */
+  .table.card-table tbody td[data-label="Ações"] .btn {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .table td, .table th { padding: .85rem 1rem; }
+}
+
+/* Botões com paleta açaí */
+.btn-outline-secondary {
+  border-color: var(--acai-400);
+  color: var(--acai-700);
+}
+.btn-outline-secondary:hover {
+  background: var(--acai-100);
+  border-color: var(--acai-600);
+  color: var(--acai-800);
+}
+.btn-outline-acai {
+  color: var(--acai-700);
+  border-color: var(--acai-400);
+}
+.btn-outline-acai:hover {
+  background: var(--acai-100);
+  border-color: var(--acai-600);
+  color: var(--acai-800);
+}
+
+/* Inputs */
+.input-group-text {
+  background: var(--acai-100);
+  border-color: #dee2e6;
+}
