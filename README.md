@@ -3,7 +3,7 @@
 Aplicação web com interface moderna para gerenciar estoque de itens relacionados a açaí. Permite cadastrar, listar, buscar, editar e remover produtos com controle de preço, quantidade e unidade. O projeto foi pensado para ser simples de subir no XAMPP e já vem com dados iniciais.
 
 ### Demonstração
-![Tela do Sistema](/assets/img.jpg)
+![Tela do Sistema](assets/img.jpg)
 
 ### Funcionalidades
 - Cadastro de produtos (nome, categoria, descrição, preço, quantidade, unidade)
@@ -19,38 +19,33 @@ Aplicação web com interface moderna para gerenciar estoque de itens relacionad
 - PHP 8+ (padrão no XAMPP recente)
 
 ### Instalação (XAMPP - Windows)
-1. Copie a pasta `estoque_acai` para `C:\xampp\htdocs\estoque_acai`.
-2. Configure o acesso ao banco em `estoque_acai/config.php`:
+1. Copie/clon e o conteúdo deste repositório para `C:\xampp\htdocs\<sua-pasta>`.
+2. Configure o acesso ao banco em `<sua-pasta>/config.php`:
    ```php
    define('DB_USER', 'root');
    define('DB_PASS', 'root'); // ajuste conforme sua instalação
    define('DB_HOST', 'localhost');
    define('DB_PORT', '3306');
-   define('BASE_URL', '/estoque_acai'); // ajuste se mudar a pasta
+   define('BASE_URL', '/<sua-pasta>'); // ajuste com o nome da pasta no htdocs
    ```
 3. Inicie Apache e MySQL no XAMPP Control Panel.
-4. Acesse `http://localhost/estoque_acai/` no navegador.
+4. Acesse `http://localhost/<sua-pasta>/` no navegador.
    - No primeiro acesso, o sistema cria o banco `estoque_acai`, a tabela `produtos` e insere 10 registros de exemplo.
 
 ### Estrutura do Projeto
 ```
-/ (raiz do workspace)
-├─ assets/                 # (opcional) pasta geral para imagens do repositório
-├─ estoque_acai/
-│  ├─ assets/
-│  │  ├─ img.jpg           # Imagem usada como logo na navbar
-│  │  └─ style.css         # Estilos customizados
-│  ├─ partials/
-│  │  ├─ header.php        # Navbar e início do layout
-│  │  └─ footer.php        # Scripts e rodapé
-│  ├─ .htaccess            # Regras básicas e segurança
-│  ├─ config.php           # Configurações gerais (DB e BASE_URL)
-│  ├─ db.php               # Conexão PDO e bootstrap do schema/dados
-│  ├─ helpers.php          # Flash messages, CSRF e helpers
-│  ├─ index.php            # Listagem e busca
-│  ├─ create.php           # Criação de item
-│  ├─ edit.php             # Edição de item
-│  └─ delete.php           # Remoção de item
+/ (raiz do repositório)
+├─ assets/                # Imagens para o README (ex.: img.jpg)
+├─ assets/ (do app)       # usado em runtime dentro da pasta do app
+├─ partials/              # Header e Footer do app
+├─ .htaccess              # Regras básicas e segurança (app)
+├─ config.php             # Configurações gerais (DB e BASE_URL)
+├─ db.php                 # Conexão PDO e bootstrap do schema/dados
+├─ helpers.php            # Flash messages, CSRF e helpers
+├─ index.php              # Listagem e busca
+├─ create.php             # Criação de item
+├─ edit.php               # Edição de item
+├─ delete.php             # Remoção de item
 └─ README.md
 ```
 
@@ -61,15 +56,15 @@ Aplicação web com interface moderna para gerenciar estoque de itens relacionad
 - Dados iniciais (10 itens): tigelas de açaí (300/500ml), variações com granola/banana, polpa 1kg, granola 1kg, copos e tampas 500ml, etc.
 
 ### Personalização
-- Trocar logo: substitua o arquivo `estoque_acai/assets/img.jpg` pela sua imagem
-- Estilos: edite `estoque_acai/assets/style.css`
-- Navegação: `estoque_acai/partials/header.php`
-- Rodapé: `estoque_acai/partials/footer.php`
-- URL base: `BASE_URL` em `estoque_acai/config.php` se a pasta mudar
+- Trocar logo (no app): substitua `<sua-pasta>/assets/img.jpg` pela sua imagem
+- Estilos: edite `<sua-pasta>/assets/style.css`
+- Navegação: `<sua-pasta>/partials/header.php`
+- Rodapé: `<sua-pasta>/partials/footer.php`
+- URL base: `BASE_URL` em `<sua-pasta>/config.php` se a pasta mudar
 
 ### Solução de Problemas
 - Access denied (MySQL):
-  - Verifique `DB_USER` e `DB_PASS` em `estoque_acai/config.php`.
+  - Verifique `DB_USER` e `DB_PASS` em `<sua-pasta>/config.php`.
   - Alternativa: criar usuário dedicado e usar no `config.php`:
     ```sql
     CREATE USER 'estoque'@'localhost' IDENTIFIED BY 'acai123';
@@ -83,7 +78,7 @@ Aplicação web com interface moderna para gerenciar estoque de itens relacionad
     define('DB_PASS', 'acai123');
     ```
 - Página não abre:
-  - Confirme a pasta em `C:\xampp\htdocs\estoque_acai`
+  - Confirme a pasta em `C:\xampp\htdocs\<sua-pasta>`
   - Inicie Apache e MySQL no XAMPP Control Panel
   - Veja o log: `C:\xampp\apache\logs\error.log`
 
