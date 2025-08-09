@@ -3,7 +3,7 @@
 Aplicação web com interface moderna para gerenciar estoque de itens relacionados a açaí. Permite cadastrar, listar, buscar, editar e remover produtos com controle de preço, quantidade e unidade. O projeto foi pensado para ser simples de subir no XAMPP e já vem com dados iniciais.
 
 ### Demonstração
-![Tela do Sistema](/estoque_acai/assets/img.jpg)
+![Tela do Sistema](./estoque_acai/assets/img.jpg)
 
 ### Funcionalidades
 - Cadastro de produtos (nome, categoria, descrição, preço, quantidade, unidade)
